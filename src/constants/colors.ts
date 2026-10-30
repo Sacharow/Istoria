@@ -1,0 +1,20 @@
+export const colors = {
+  red: "#C51605",
+  redDark: "#660000",
+  orange: "#ff2200",
+  orangeLight: "#F85726",
+  orangeDark: "#cf6705",
+  orangeAlt: "#f1540a",
+  yellow: "#FD9029",
+  yellowLight: "#F4A15E",
+  purple: "#58018B",
+  purpleLight: "#C90AE4",
+  purpleDark: "#2f0746",
+
+  background: "#161310",
+  background_shadow: "#120f0d",
+  section: "#221f1c",
+  text_light: "#91806e",
+  text_active: "#e0a966",
+  text_bolder: "#ffae3e",
+};
