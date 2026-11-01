@@ -1,23 +1,17 @@
-import { router } from "expo-router";
+import { router, usePathname } from "expo-router";
 import { BookOpenText, Mountain, Settings, Sword } from "lucide-react-native";
-import { useEffect, useState } from "react";
 import { Pressable, StyleSheet, View } from "react-native";
 import { colors } from "../../constants/colors";
 
 export default function Footer() {
-  const [mounted, setMounted] = useState(false);
+  const pathname = usePathname();
+
   const buttons = [
     { id: 1, label: "Glossary", icon: BookOpenText, route: "/glossary" },
     { id: 2, label: "Character", icon: Sword, route: "/character_select" },
     { id: 3, label: "Campaign", icon: Mountain, route: "/campaign_select" },
     { id: 4, label: "Settings", icon: Settings, route: "/settings" },
   ] as const;
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null;
 
   return (
     <View style={styles.container}>
@@ -27,7 +21,12 @@ export default function Footer() {
           style={[styles.button]}
           onPress={() => router.push(button.route)}
         >
-          <button.icon size={32} color={colors.text_light} />
+          {pathname === button.route && (
+            <button.icon size={32} color={colors.text_bolder} />
+          )}
+          {pathname !== button.route && (
+            <button.icon size={32} color={colors.text_light} />
+          )}
         </Pressable>
       ))}
     </View>

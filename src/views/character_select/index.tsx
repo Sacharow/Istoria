@@ -5,7 +5,7 @@ import { StyleSheet, View } from "react-native";
 export default function CharacterSelectPage() {
   return (
     <View style={styles.container}>
-      {[...Array(7)].map((_, index) => (
+      {[...Array(3)].map((_, index) => (
         <CharacterButton key={index} />
       ))}
     </View>

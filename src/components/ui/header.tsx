@@ -1,18 +1,27 @@
 import D20 from "@/components/ui/D20";
 import { colors } from "@/constants/colors";
+import { router, usePathname } from "expo-router";
 import { ChevronLeft } from "lucide-react-native";
-import { StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import CharacterAdd from "../character_add";
 
 export default function Header() {
+  const pathname = usePathname();
+
   return (
     <View style={styles.container}>
-      <ChevronLeft color={colors.text_bolder} />
-      <View style={styles.logoContainer}>
+      <Pressable onPress={() => router.navigate("../")}>
+        <ChevronLeft color={colors.text_bolder} />
+      </Pressable>
+      <Pressable
+        style={styles.logoContainer}
+        onPress={() => router.push("../")}
+      >
         <D20 style={styles.logo} />
-        <Text style={styles.title}>ISTORIA</Text>
-      </View>
-      <CharacterAdd />
+        <Text style={styles.title}>FABULARIUM</Text>
+      </Pressable>
+      {pathname === "/character_select" && <CharacterAdd />}
+      {pathname === "/campaign_select" && <CharacterAdd />}
     </View>
   );
 }
