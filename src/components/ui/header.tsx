@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     left: 0,
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
     gap: 32,
     padding: 12,
     backgroundColor: colors.background,
@@ -36,7 +36,6 @@ const styles = StyleSheet.create({
   logoContainer: {
     alignItems: "flex-start",
     padding: 4,
-    borderRadius: 8,
     display: "flex",
     flexDirection: "row",
     gap: 16,
